@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin                # Admin username
+      KEYCLOAK_ADMIN_PASSWORD: admin    # Admin password
+      extraEnv: |
+        - name: KEYCLOAK_LOGLEVEL
+          value: DEBUG
+    ports:
+      - "8080:8080"
+    command: start-dev                     # Start Keycloak in development mode
+    
